@@ -91,15 +91,16 @@ window.onload = function(){
         eventsRandom.push(versionsEvents[q].slice(0));//Добавляем последний элемент
         //Выполнение функции каждые 100мс
         var game = setInterval(function(){
-
+            //Заполняем окно игры характеристиками
             rectangleCanvas.clearRect(0,0,width,height);
             rectangleCanvas.fillText("РПГ",10,15);
             rectangleCanvas.fillText("LVL "+lvl+"n  HP "+hp+"/100  Опыт "+experience+"/"+lvl*10+"  Атака "+(lvl*4+6)+"  Защита "+(lvl*2+1)+"  Золото $"+gold+"  Зелья "+potions,10,30);
+            
             //Вывод имени события
             for (var i=0; i < eventsSize; i++){ 
                 rectangleCanvas.fillText((i == eventsSize - 1 || i <= currentEvent) ? eventsRandom[i][0] : "??", i*75+15, 70);
             }
-
+            //Курсор события
             rectangleCanvas.fillText("@",currentEvent*70+5,70);
             rectangleCanvas.fillText(eventsRandom[currentEvent][1],10,100);
             
